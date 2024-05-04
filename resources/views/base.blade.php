@@ -33,6 +33,11 @@
         </div>
       </nav>
     <div class="container">
+      @if(session('success'))
+        <div class="alert alert-success">
+          {{ session('success') }}
+        </div>
+      @endif
       {{-- @dump(request()->route()->getName()) --}}
         @yield('content')
     </div>
