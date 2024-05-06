@@ -7,36 +7,34 @@
 <div class="container">
     <div class="row">
         <div class="col-md-2">
-            <!-- Aggiungi il form per il filtro -->
             <h3>Mes filtres</h3>
             <form action="{{ route('blog.index') }}" method="GET">
                 <div class="form-group">
-                    <label for="category_id">Categoria:</label>
+                    <label for="category_id">Categorie:</label>
                     <select class="form-control" name="category_id" id="category_id">
-                        <option value="">Tutte le categorie</option>
+                        <option value="">Tuoutes les categories</option>
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
                     </select><br>
                 </div>
                 <div class="form-group">
-                    <label for="tag_ids">Tag:</label>
+                    <label for="tag_ids">Tags:</label>
                     <select class="form-control" name="tag_ids[]" id="tag_ids" multiple>
                         @foreach($tags as $tag)
                             <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                         @endforeach
                     </select><br>
                 </div>
-                <button type="submit" class="btn btn-primary">Filtra</button>
+                <button type="submit" class="btn btn-primary">Filtrer</button>
             </form>
         </div>
         <div class="col-md-9">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h1>Mon Blog</h1>
-                <a href="{{ route('blog.create') }}" class="btn btn-primary">Ajouter un article</a>
+                <a href="{{ route('blog.create') }}" class="btn btn-success">Ajouter un article</a>
             </div>
             <hr>
-            <!-- Itera sui post --> 
             @foreach ($posts as $post)
                 <div class="card mb-3">
                     <article class="card-body">
